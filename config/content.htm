@@ -3,18 +3,21 @@
 <p>靜態網站: <a href="https://scrum-1.github.io/b">https://scrum-1.github.io/b</a> 主要用來展示網站內容</p>
 <p>對應倉儲: <a href="https://github.com/scrum-1/b">https://github.com/scrum-1/b</a> 主要用來儲存網站資料</p>
 <h1>Process</h1>
-<p>經由 <a>https://b.scrum1.repl.co</a> 維護網站內容</p>
-<p>在 Replit Git tool 進行提交後, 回到 Replit shell 執行 git push github</p>
-<h1>Replit</h1>
-<p><a href="https://replit.com/">https://replit.com/</a> (use wcms)</p>
+<p>經由 <a>https://b.scrum1.repl.co</a> 維護動態網站內容, 之後利用 generate_page 轉為靜態網站 (即分頁後將各頁面檔案存至 content 目錄)</p>
+<p>在 Replit Git tool 進行提交後, 回到 Replit shell 執行 git push github</p><h1>Replit</h1>
+<p><a href="https://replit.com/">https://replit.com/</a> (use wcms, scrum1)</p>
 <p>Replit 是一個能夠執行 Python 讓 cmsimde 網站的動態系統得以啟動, 並與 Github 中的倉儲保持同步的雲端服務.</p>
 <p>要讓 cmsimde 網站在 Replit 中執行, 必須設定 main.py:</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from cmsimde import flaskapp
-flaskapp.app.run(host='0.0.0.0', port=8080)</pre>
+from gevent.pywsgi import WSGIServer
+
+#flaskapp.app.run(host="0.0.0.0", debug=True)
+http_server = WSGIServer(('0.0.0.0', 8080), flaskapp.app)
+http_server.serve_forever()</pre>
 <p>利用 scrum1 At mde Gmail 登入 Replit, 建立名稱為 c 的 Repls, 則所建立的動態網站將位於: <a href="https://c.scrum1.repl.co">https://c.scrum1.repl.co</a></p>
 <hr/>
 <p>以下為實際在 Replit 建立動態網站的流程:</p>
-<p>登入 Replit</p>
+<p>登入 Replit (可以使用 Gmail 帳號)</p>
 <p>建立新的 Repls 時選擇採用 Python template 作為 Language, Repls title 選擇用 "b"</p>
 <p>為了要讓 Replit scrum1 帳號下的 b Repls 與 Github scrum-1 帳號下的 b 倉儲內容同步, 因此同時建立空倉儲 b</p>
 <p>接著在 b Repls 中進入 shell, 執行 git init, 起始 git 倉儲的架構, 但因內建選用 master 作為分支名稱, 因此接著執行 git branch -m main</p>
@@ -39,13 +42,12 @@ config/config
 <p>接著利用 Replit 中的 shell 安裝啟動 cmsimde 動態網站所需的模組:</p>
 <p style="padding-left: 30px;">pip install flask flask_cors bs4 lxml pelican markdown gevent</p>
 <p>接著執行 main.py 啟用動態網站, <a>https://b.scrum1.repl.co</a> 就可以登入修改管理者密碼並著手維護倉儲內容</p>
-<p>最後在 <a href="https://github.com/scrum-1/b.git">https://github.com/scrum-1/b.git</a> 端設定 Github Pages, 並在 Replit 端改版後, 以 Git 工具將內容推向 Github</p>
-<h1>Notice</h1>
+<p>最後在 <a href="https://github.com/scrum-1/b.git">https://github.com/scrum-1/b.git</a> 端設定 Github Pages, 並在 Replit 端改版後, 以 Git 工具將內容推向 Github</p><h1>Notice</h1>
 <p>在 Replit 中編輯檔案無需 save, 只要完成 key 資料即時儲存</p>
 <p>Replit 中的 git init 仍然使用 master 作為主分支名稱, 可以利用 git branch -m main 將 master 修改為 main</p>
 <p>Replit 給定的免費資料很少, 若其中的動態網站無法啟動, 可以使用近端 (localhost) 或中端 (自建 server) 維護 Github 上的同步靜態網站</p>
 <p>init.py 修改之後, Replit 並不會自行重新啟動網站, 必須關閉後重新執行 main.py 網站 title 才會更改.</p>
-<h1>Brython</h1>
+<p></p><h1>Brython</h1>
 <p><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">https://en.wikipedia.org/wiki/Python_(programming_language)</a></p>
 <h4>Examples:</h4>
 <p style="padding-left: 30px;"><a href="https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d">https://gist.github.com/mdecycu/d9082d678096bd58378d6afe2c7fa05d</a></p>
