@@ -1,1 +1,1 @@
-var tipuesearch = {"pages": [{'title': 'About', 'text': 'cmsimde_site', 'tags': '', 'url': 'About.html'}]};
+var tipuesearch = {"pages": [{'title': 'About', 'text': '動態網站:  https://b.scrum1.repl.co  主要用來維護網站內容 \n 靜態網站:  https://scrum-1.github.io/b  主要用來展示網站內容 \n 對應倉儲:  https://github.com/scrum-1/b  主要用來儲存網站資料', 'tags': '', 'url': 'About.html'}]};
