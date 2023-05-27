@@ -142,7 +142,7 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">Process << <a href='Process.html'>Previous</a> <a href='Notice.html'>Next</a> >> Notice<br /><h1>Replit</h1>
-<p><a href="https://replit.com/">https://replit.com/</a> (use wcms, scrum1)</p>
+<p><a href="https://replit.com/">https://replit.com/</a> (use wcms)</p>
 <p>Replit 是一個能夠執行 Python 讓 cmsimde 網站的動態系統得以啟動, 並與 Github 中的倉儲保持同步的雲端服務.</p>
 <p>要讓 cmsimde 網站在 Replit 中執行, 必須設定 main.py:</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from cmsimde import flaskapp
@@ -178,8 +178,10 @@ config/config
 <p style="padding-left: 30px;">接著將 scrum-1 具帶 repo 管理權限的 token 放入代號為 "github" 的 url 中, 然後執行 git push github</p>
 <p>接著利用 Replit 中的 shell 安裝啟動 cmsimde 動態網站所需的模組:</p>
 <p style="padding-left: 30px;">pip install flask flask_cors bs4 lxml pelican markdown gevent</p>
-<p>接著執行 main.py 啟用動態網站, <a>https://b.scrum1.repl.co</a> 就可以登入修改管理者密碼並著手維護倉儲內容</p>
-<p>最後在 <a href="https://github.com/scrum-1/b.git">https://github.com/scrum-1/b.git</a> 端設定 Github Pages, 並在 Replit 端改版後, 以 Git 工具將內容推向 Github</p><br />Process << <a href='Process.html'>Previous</a> <a href='Notice.html'>Next</a> >> Notice</div>
+<p>接著執行 main.py 啟用動態網站, <a>https://b.scrum1.repl.co</a> 就可以登入修改管理者密碼並著手維護倉儲內容.</p>
+<p>由於 Replit 並不支援 git config --global user.name 與 user.email, 而必須在 .replite 中加入 GIT_AUTHOR_NAME, GIT_AUTHOR_EMAIL, GIT_COMMITTER_NAME, GIT_COMMITTER_EMAIL 等環境變數, 才能在提交時採用 Github 上所登記的帳號名稱.</p>
+<p>最後在 <a href="https://github.com/scrum-1/b.git">https://github.com/scrum-1/b.git</a> 端設定 Github Pages, 並在 Replit 端改版後, 以 Git 工具將改版內容提交至 .git 目錄, 並且用 git push github 執行推送.</p>
+<p></p><br />Process << <a href='Process.html'>Previous</a> <a href='Notice.html'>Next</a> >> Notice</div>
         
     <!-- footer -->
       <div class="container">
