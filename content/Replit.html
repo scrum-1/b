@@ -2,6 +2,7 @@
         <head>
         <title>cmsimde_site</title>
         <meta charset="utf-8">
+<meta property="head" content="H1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -94,6 +95,7 @@ img.add_border {
 </head>
 <body>
 <div class='container'><nav>
+        
     <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -139,4 +141,89 @@ img.add_border {
           </div>
           
         </header>
-    </nav><section><h1>Site Map</h1><div id="tipue_search_content"></div><ul><li><a href='About.html'>About</a><li><a href='Process.html'>Process</a><li><a href='Replit.html'>Replit</a><li><a href='Notice.html'>Notice</a></li></ul></section></div></body></html>
+    <div id="tipue_search_content">Process << <a href='Process.html'>Previous</a> <a href='Notice.html'>Next</a> >> Notice<br /><h1>Replit</h1>
+<p><a href="https://replit.com/">https://replit.com/</a> (use wcms)</p>
+<p>Replit 是一個能夠執行 Python 讓 cmsimde 網站的動態系統得以啟動, 並與 Github 中的倉儲保持同步的雲端服務.</p>
+<p>要讓 cmsimde 網站在 Replit 中執行, 必須設定 main.py:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from cmsimde import flaskapp
+flaskapp.app.run(host='0.0.0.0', port=8080)</pre>
+<p>利用 scrum1 At mde Gmail 登入 Replit, 建立名稱為 c 的 Repls, 則所建立的動態網站將位於: <a href="https://c.scrum1.repl.co">https://c.scrum1.repl.co</a></p>
+<hr/>
+<p>以下為實際在 Replit 建立動態網站的流程:</p>
+<p>登入 Replit</p>
+<p>建立新的 Repls 時選擇採用 Python template 作為 Language, Repls title 選擇用 "b"</p>
+<p>為了要讓 Replit scrum1 帳號下的 b Repls 與 Github scrum-1 帳號下的 b 倉儲內容同步, 因此同時建立空倉儲 b</p>
+<p>接著在 b Repls 中進入 shell, 執行 git init, 起始 git 倉儲的架構, 但因內建選用 master 作為分支名稱, 因此接著執行 git branch -m main</p>
+<p>接著建立 .gitignore 內容如下:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false"># Byte-compiled
+__pycache__/
+# for Replit, do not use the embedded venv Python
+venv/
+config/config
+.DS_Store
+*.lock
+*.nix</pre>
+<p>接著將 cmsimde 設為倉儲子模組:</p>
+<p style="padding-left: 30px;">git submodule add <a href="https://github.com/mdecycu/cmsimde.git">https://github.com/mdecycu/cmsimde.git</a> cmsimde</p>
+<p style="padding-left: 30px;">待 cmsimde 子模組取下倉儲檔案後, 將 up_dir 中的所有檔案複製到 b 倉儲的根目錄</p>
+<p style="padding-left: 60px;">cp -R ./cmsimde/up_dir/* ./</p>
+<p style="padding-left: 60px;">表示利用 cp 指令, -R 表示要連目錄中的所有檔案與目錄一併複製</p>
+<p>接著從 Replit 的 Tools 帶出 Git 工具準備提交 (請注意 Replit 並不支援 git add .)</p>
+<p>接著將遠端的倉儲設為 remote, 名稱為 github</p>
+<p style="padding-left: 30px;">git remote add github <a href="https://github.com/scrum-1/b.git">https://github.com/scrum-1/b.git</a></p>
+<p style="padding-left: 30px;">接著將 scrum-1 具帶 repo 管理權限的 token 放入代號為 "github" 的 url 中, 然後執行 git push github</p>
+<p>接著利用 Replit 中的 shell 安裝啟動 cmsimde 動態網站所需的模組:</p>
+<p style="padding-left: 30px;">pip install flask flask_cors bs4 lxml pelican markdown gevent</p>
+<p>接著執行 main.py 啟用動態網站, <a>https://b.scrum1.repl.co</a> 就可以登入修改管理者密碼並著手維護倉儲內容</p>
+<p>最後在 <a href="https://github.com/scrum-1/b.git">https://github.com/scrum-1/b.git</a> 端設定 Github Pages, 並在 Replit 端改版後, 以 Git 工具將內容推向 Github</p>
+<br />Process << <a href='Process.html'>Previous</a> <a href='Notice.html'>Next</a> >> Notice</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
